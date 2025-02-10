@@ -17,9 +17,8 @@
             $name = $this->db->escape($name);
             $quantity = $this->db->escape($quantity);
 
-            
-
-            $ticket = $this->db->query("");
+            $this->db->query("INSERT INTO reservations(`buyer_name`. `event_id`, `quantity`) VALUES ('$name', $festID, $quantity)");
+            $this->db->query("UPDATE events SET total_tickets = total_tickets - $quantity, tickets_sold = tickets_sold + $quantity WHERE id = $festID");
         }
 
     }

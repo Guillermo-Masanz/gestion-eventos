@@ -16,12 +16,14 @@
             case 'texto':
                 if ( empty($valor) ) {
                     return "* Debe introducir texto en el campo";
+                } elseif ( strlen($valor ) > 255 ) {
+                    return "* No se pueden introducir más de 255 cáracteres";
                 }
                 break;
 
-            case 'nuemero':
-                if ( !is_numeric($valor) ) {
-                    return "* El campo debe ser un número";
+            case 'numero':
+                if ( !is_numeric($valor) && $valor < 1 ) {
+                    return "* El campo debe ser un número mayor a 0";
                 }
                 break;
                 

@@ -10,7 +10,7 @@
     <h2>Reservar Entradas</h2>
 
     <div class="festivalFormContainer">
-        <form action="index.php?page=festival" method="post">
+        <form action="index.php?page=festival&festival_ID=<?php  ?>" method="post">
             <div class="festivalForm">
                 <label for="nombre">Nombre: </label>
                 <br>
@@ -30,7 +30,7 @@
                 <br>
                 <span class="errorFestivalForm">
                     <?php
-                        if (isset($errores['customerTickets'])) { echo $errores['customerTickets']; }
+                        if (isset($errores['customerQuantity'])) { echo $errores['customerQuantity']; }
                     ?>
                 </span>
 
