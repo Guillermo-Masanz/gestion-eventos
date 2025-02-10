@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+/* .inconsolata-<uniquifier > {
+    font-family: 'Inconsolata', serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings: 'wdth' 100;
+} */
+
+/* ***************************** */
+/* ********* RESETER *********** */
+/* ***************************** */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0 solid transparent;
+    font-family: 'Inconsolata', serif;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1;
+    text-rendering: optimizeSpeed;
+    background-color: #F1EDEE;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+[role='button'] {
+    cursor: pointer;
+    background-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    &:focus {
+        outline: 0;
+    }
+}
+
+textarea {
+    resize: none;
+}
+
+/* ****************************** */
+/* ********* CABECERA *********** */
+/* ****************************** */
+.navbar {
+    background-color: #1C1D21;
+    color: #F1EDEE;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 4em;
+}
+
+.enlaces {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+
+.enlaces a {
+    font-size: 20px;
+    transition: color 0.2s ease-in-out;
+}
+
+.enlaces a:hover {
+    color: #8377D1;
+}
+
+/* ************************* */
+/* ********* PIE *********** */
+/* ************************* */
+.pie {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2em;
+    background-color: #1C1D21;
+    color: #F1EDEE;
+    position: fixed;
+    bottom: 0;
+}
+
+/* **************************** */
+/* ********* INICIO *********** */
+/* **************************** */
+.cuerpo {
+    width: 90%;
+    margin: 1em auto;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 3em;
+    text-transform: uppercase;
+}
+
+.tarjetas {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-flow: wrap row;
+    gap: 2em;
+    margin: 2em auto;
+}
+
+.tarjeta {
+    background-color: #1C1D21;
+    width: 34em;
+    height: fit-content;
+    border-radius: 0.6em;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+    transition: box-shadow 0.3 ease-in-out;
+}
+
+.tarjeta * {
+    margin: 0.6em;
+    color: #D72638;
+    font-weight: bold;
+}
+
+.tarjeta h2 {
+    color: #FF0035;
+    font-size: 1.8em;
+}
+
+.tarjeta p {
+    font-size: 1.2em;
+}
+
+.tarjeta:hover {
+    box-shadow: 6px 6px 8px 2px #6f65b1;
+}
+
+/* ************************************** */
+/* ********* FESTIVAL CLIENTE *********** */
+/* ************************************** */
+.festival {
+    width: fit-content;
+    margin: 2em auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+}
+
+.festival * {
+    margin: 0.5em 0;
+}
+
+.festival h1 {
+    color: #685FA4;
+    text-transform: uppercase;
+    font-size: 6em;
+    text-align: center;
+    display: inline;
+}
+
+.festival h2 {
+    font-size: 4em;
+}
+
+.festival p {
+    font-weight: bold;
+    font-size: 2.2em;
+    display: inline;
+}
+
+.festivalForm {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.festivalForm label {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.festivalForm input[type="text"] {
+    height: 2em;
+    background-color: #dcd7d8;
+    border-radius: 0.4em;
+    width: 500px;
+    padding: 0 12px;
+    font-size: 1em;
+}
+
+.festivalForm input[type="submit"] {
+    margin: 0 auto;
+    background-color: #FF0035;
+    color: #F1EDEE;
+    font-weight: bold;
+    padding: 12px;
+}
+
+.festivalForm input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+.errorFestivalForm {
+    color: #FF0035;
+    font-weight: bold;
+    margin-left: 0.8em;
+}
