@@ -9,7 +9,7 @@
         }
 
         public function getCustomerFestival($festID) {
-            $fest = $this->db->query("SELECT * FROM events WHERE id = $festID");
+            $fest = $this->db->query("SELECT * FROM events WHERE id = $festID;");
             return $fest->fetch_all(MYSQLI_ASSOC);
         }
 
@@ -17,8 +17,8 @@
             $name = $this->db->escape($name);
             $quantity = $this->db->escape($quantity);
 
-            $this->db->query("INSERT INTO reservations(`buyer_name`. `event_id`, `quantity`) VALUES ('$name', $festID, $quantity)");
-            $this->db->query("UPDATE events SET total_tickets = total_tickets - $quantity, tickets_sold = tickets_sold + $quantity WHERE id = $festID");
+            $this->db->query("INSERT INTO reservations(`buyer_name`, `event_id`, `quantity`) VALUES ('$name', $festID, $quantity);");
+            $this->db->query("UPDATE events SET total_tickets = total_tickets - $quantity, tickets_sold = tickets_sold + $quantity WHERE id = $festID;");
         }
 
     }

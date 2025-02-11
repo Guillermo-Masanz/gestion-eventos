@@ -228,3 +228,32 @@ textarea {
     font-weight: bold;
     margin-left: 0.8em;
 }
+
+/* ******************************** */
+/* ********* ADMIN PANE *********** */
+/* ******************************** */
+.adminPaneTable table {
+    border: 1px solid #1C1D21;
+    width: 100%;
+    border-radius: 0.2em;
+}
+
+.adminPaneTable table tr {
+    border-bottom: 1px solid #1C1D21;
+}
+
+.adminPaneTable table th {
+    font-weight: bold;
+    color: #FF0035;
+}
+
+.adminPaneTable .agregar {
+    background-color: #FF0035;
+    border-radius: 0.5em;
+    width: 50px;
+}
+
+.adminPaneTable .agregar i {
+    font-size: 4ch;
+    color: #F1EDEE;
+}

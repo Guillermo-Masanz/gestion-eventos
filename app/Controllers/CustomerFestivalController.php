@@ -15,10 +15,12 @@
                     $errores['customerName'] = validacionValor($customerName, 'texto');
                     $errores['customerQuantity'] = validacionValor($customerQuantity, 'numero');
                     
-                    if ( empty($errores) ) {
+                    if ( empty(array_filter($errores)) ) {
                         
                         $CustomerFestivalModel = new CustomerFestivalModel();
                         $CustomerFestivalModel->getTickets($_GET['festival_ID'], $customerName, $customerQuantity);
+                        unset($customerName);
+                        unset($customerQuantity);
                         header('Location: index.php?page=inicio');
     
                     } else {
@@ -28,7 +30,7 @@
                         require_once realpath( __DIR__ . '/../Views/CustomerFest.php' );
     
                     }
-                    
+                
     
                 } else {
                     
