@@ -18,10 +18,9 @@
                     break;
 
                 case 'adminPane':
-                    // require_once realpath( __DIR__ . '/../Controllers/InicioController.php' );
-                    // $controller = new InicioController();
-                    // $controller->index();
-                    require_once realpath( __DIR__ . '/../Views/AdminPane.php' );
+                    require_once realpath( __DIR__ . '/../Controllers/AdminPaneController.php' );
+                    $controller = new AdminPaneController();
+                    $controller->index();
                     break;
 
                 case 'newEvent':
