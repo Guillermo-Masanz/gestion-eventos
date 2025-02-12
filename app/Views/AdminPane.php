@@ -19,15 +19,15 @@
                 foreach ( $events as $event ) {
                     echo '
                     <tr>
-                        <td>'.$event['id'].'</td>
+                        <td><b>'.$event['id'].'</b></td>
                         <td>'.$event['name'].'</td>
                         <td>'.$event['event_date'].'</td>
                         <td>'.$event['tickets_sold'].'</td>
                         <td>'.$event['total_tickets'].'</td>
                         <td>
-                            <a href="index.php?page=adminPane&eventID=\''. $event['id'] .'\'">Editar</a>
-                            <a href="index.php?page=adminPane&eventID=\''. $event['id'] .'\'">Eliminar</a>
-                            <a href="index.php?page=adminPane&eventID=\''. $event['id'] .'\'">Ver estadísticas</a>
+                            <a href="index.php?page=adminPane&eventID='. $event['id'] .'">Editar</a>
+                            <a href="index.php?page=adminPane&eventID='. $event['id'] .'">Eliminar</a>
+                            <a href="index.php?page=adminPane&eventID='. $event['id'] .'">Ver estadísticas</a>
                         </td>
                     </tr>
                     ';

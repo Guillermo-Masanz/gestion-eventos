@@ -24,6 +24,9 @@
                     break;
 
                 case 'newEvent':
+                    require_once realpath( __DIR__ . '/../Controllers/NewEventController.php' );
+                    $controller = new NewEventController();
+                    $controller->index();
                     break;
 
                 case 'ServiceDown':

@@ -233,9 +233,9 @@ textarea {
 /* ********* ADMIN PANE *********** */
 /* ******************************** */
 .adminPaneTable table {
-    border: 1px solid #1C1D21;
     width: 100%;
     border-radius: 0.2em;
+    border-collapse: collapse;
 }
 
 .adminPaneTable table tr {
@@ -245,15 +245,82 @@ textarea {
 .adminPaneTable table th {
     font-weight: bold;
     color: #FF0035;
-}
-
-.adminPaneTable .agregar {
-    background-color: #FF0035;
-    border-radius: 0.5em;
-    width: 50px;
+    padding-bottom: 0.4em;
+    font-size: 3ch;
 }
 
 .adminPaneTable .agregar i {
-    font-size: 4ch;
+    background-color: #FF0035;
+    border-radius: 0.2em;
+    padding: 0.1em;
+    font-size: 3ch;
     color: #F1EDEE;
+}
+
+.adminPaneTable table td {
+    text-align: center;
+    padding: 1em 0;
+    font-size: 2.2ch;
+}
+
+.adminPaneTable table td a {
+    font-weight: bold;
+    transition: color 200ms ease-in-out;
+    margin: 0.2em;
+}
+
+.adminPaneTable table td a:hover {
+    color: #8377D1;
+    text-decoration: underline;
+}
+
+/* ****************************** */
+/* ********* NEW FORM *********** */
+/* ****************************** */
+.newEventFormContainer {
+    width: 60%;
+    margin: 2em auto;
+}
+
+.newEventForm {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.newEventForm label {
+    font-weight: bold;
+    font-size: 3ch;
+}
+
+.newEventForm input[type="text"] {
+    height: 2em;
+    border-radius: 0.2em;
+    opacity: 0.6;
+    transition: opacity 200ms ease-in-out;
+    padding: 0 12px;
+}
+
+.newEventForm input[type="text"]:focus {
+    opacity: 1;
+    border: transparent;
+}
+
+.newEventForm input[type="submit"] {
+    background-color: #FF0035;
+    color: #F1EDEE;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 1.2em;
+    border-radius: 0.4em;
+    font-size: 2ch;
+}
+
+.newEventForm input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+.newEventForm .errorNewEventForm {
+    color: #D72638;
+    font-size: 2ch;
+    font-weight: bold;
 }
