@@ -25,9 +25,9 @@
                         <td>'.$event['tickets_sold'].'</td>
                         <td>'.$event['total_tickets'].'</td>
                         <td>
-                            <a href="index.php?page=adminPane&eventID='. $event['id'] .'">Editar</a>
-                            <a href="index.php?page=adminPane&eventID='. $event['id'] .'">Eliminar</a>
-                            <a href="index.php?page=adminPane&eventID='. $event['id'] .'">Ver estadísticas</a>
+                            <a href="index.php?page=adminPane&eventID='. $event['id'] .'&state=edit">Editar</a>
+                            <a href="index.php?page=adminPane&eventID='. $event['id'] .'&state=delete">Eliminar</a>
+                            <a href="index.php?page=statsPane&eventID='. $event['id'] .'">Ver estadísticas</a>
                         </td>
                     </tr>
                     ';

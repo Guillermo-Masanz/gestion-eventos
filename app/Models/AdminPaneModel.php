@@ -14,6 +14,17 @@
             return $events->fetch_all(MYSQLI_ASSOC);
         }
 
+        public function getEventsById( $id ) {
+            $id = $this->db->escape($id);
+            $event = $this->db->query("SELECT * FROM events WHERE id = $id;");
+            return $event->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function deleteEvent( $id ) {
+            $id = $this->db->escape($id);
+            $this->db->query("DELETE FROM events WHERE id = $id");
+        }
+
     }
 
 ?>
