@@ -2,6 +2,10 @@
     include 'Includes/Cabecera.php';
 ?>
 
+<div class="goBack">
+    <a href="index.php?page=adminPane&state="><i class='bx bx-left-arrow-alt'></i></a>
+</div>
+
 <div class="newEventFormContainer">
     <form action="index.php?page=adminPane&state=new" method="post">
         <div class="newEventForm">

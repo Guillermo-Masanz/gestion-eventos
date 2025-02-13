@@ -2,8 +2,13 @@
     include 'Includes/Cabecera.php';
 ?>
 
+<div class="goBack">
+    <a href="index.php?page=adminPane&state="><i class='bx bx-left-arrow-alt'></i></a>
+</div>
+
 <div class="newEventFormContainer">
-    <form action="index.php?page=adminPane&eventID=<?php echo $event[0]['id'] ?>&state=edit" method="post">
+    <form action="index.php?page=adminPane&state=edit" method="post">
+        <input type="hidden" name="eventID" value="<?php echo $event[0]['id']; ?>">
         <div class="newEventForm">
             <label for="nombre">Nombre del Evento</label>
             <span class="errorNewEventForm">
@@ -17,7 +22,7 @@
                     
                     echo $eventName;
                     
-                } else {
+                } elseif ( isset($event[0]['name']) ) {
 
                     echo $event[0]['name'];
 
@@ -38,7 +43,7 @@
 
                     echo $eventDescription;
 
-                } else {
+                } elseif ( isset($event[0]['description']) ) {
 
                     echo $event[0]['description'];
 
@@ -55,14 +60,14 @@
             </span>
             <br>
             <input type="text" name="date" id="date" value="<?php 
-                if ( isset($eventDate) && !isset($errores['eventDate']) ) { 
+                if (isset($_POST['date'])) {
+
+                    echo htmlspecialchars($_POST['date']);
+
+                } elseif (isset($event[0]['event_date'])) {
+
+                    echo htmlspecialchars($event[0]['event_date']);
                     
-                    echo $eventDate;
-
-                } else {
-
-                    echo $event[0]['event_date'];
-
                 }
             ?>" >
 
@@ -80,7 +85,7 @@
                     
                     echo $eventPrice;
 
-                } else {
+                } elseif ( isset($event[0]['ticket_price']) ) {
 
                     echo $event[0]['ticket_price'];
 
@@ -101,7 +106,7 @@
                     
                     echo $eventTotalTickets;
 
-                } else {
+                } elseif ( isset($event[0]['total_tickets']) ) {
 
                     echo $event[0]['total_tickets'];
 

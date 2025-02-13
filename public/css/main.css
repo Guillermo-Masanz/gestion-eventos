@@ -324,3 +324,39 @@ textarea {
     font-size: 2ch;
     font-weight: bold;
 }
+
+/* ******************************** */
+/* ********* STATS SITE *********** */
+/* ******************************** */
+.statsContainer {
+    width: 60dvw;
+    display: flex;
+    margin: 2em auto;
+    align-items: center;
+    flex-flow: column wrap;
+    row-gap: 2em;
+}
+
+.statsContainer h1 {
+    color: #61589a;
+    text-transform: uppercase;
+    font-size: 6ch;
+}
+
+.statsContainer p {
+    font-size: 3.2ch;
+}
+
+.goBack {
+    width: 80dvw;
+    margin: 0 auto;
+}
+
+.goBack i {
+    background-color: #FF0035;
+    border-radius: 0.2em;
+    width: 2em;
+    font-size: 6ch;
+    color: #F1EDEE;
+    text-align: center;
+}

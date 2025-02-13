@@ -14,7 +14,7 @@
             return $events->fetch_all(MYSQLI_ASSOC);
         }
 
-        public function getEventsById($id) {
+        public function getEventById($id) {
             $id = $this->db->escape($id);
             $event = $this->db->query("SELECT * FROM events WHERE id = $id;");
             return $event->fetch_all(MYSQLI_ASSOC);
@@ -36,16 +36,15 @@
 
         }
         
-        public function updateEvent($id, $name, $description, $date, $tickets_sold, $total_tickets) {
-            $id = $this->db->escape($id);
-            $name = $this->db->escape($name);
-            $date = $this->db->escape($date);
-            $tickets_sold = (int) $tickets_sold;
-            $total_tickets = (int) $total_tickets;
-        
-            $this->db->query("UPDATE events SET name = '$name', description = '$description', event_date = '$date', tickets_sold = $tickets_sold, total_tickets = $total_tickets WHERE id = $id");
+        public function updateEvent($eventID, $Nombre, $Description, $Fecha, $TotalEntradas, $PrecioEntrada) {
+            $eventID = $this->db->escape($eventID);
+            $Nombre = $this->db->escape($Nombre);
+            $Description = $this->db->escape($Description);
+            $Fecha = $this->db->escape($Fecha);
+            $TotalEntradas = $this->db->escape($TotalEntradas);
+            $PrecioEntrada = $this->db->escape($PrecioEntrada);
+            $this->db->query("UPDATE events SET name = '$Nombre', description = '$Description', event_date = '$Fecha', total_tickets = $TotalEntradas, ticket_price = $PrecioEntrada WHERE id = $eventID");
         }
-        
 
     }
 

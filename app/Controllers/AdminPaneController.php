@@ -22,9 +22,14 @@
                         $this->newEvent();
                         break;
 
+                    case 'stats':
+                        $this->showEstadisticas();
+                        break;
+
                     default:
                         $this->showEvents();
                 }
+
             } else {
 
                 $this->showEvents();
@@ -66,35 +71,38 @@
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $errores = [];
-
+            
+                $eventID = $_POST['eventID'] ?? null ;
                 $eventName = sanearCampo($_POST['nombre']);
                 $eventDescription = sanearCampo($_POST['description']);
                 $eventDate = sanearCampo($_POST['date']);
                 $eventPrice = sanearCampo($_POST['price']);
                 $eventTotalTickets = sanearCampo($_POST['totalTickets']);
-
+            
                 $errores['eventName'] = validacionValor($eventName, 'texto');
                 $errores['eventDescription'] = validacionValor($eventDescription, 'texto');
                 $errores['eventDate'] = validacionValor($eventDate, 'fecha');
                 $errores['eventPrice'] = validacionValor($eventPrice, 'numero');
                 $errores['eventTotalTickets'] = validacionValor($eventTotalTickets, 'numero');
-
-                if ( empty(array_filter($errores)) ) {
-
+            
+                
+                if (empty(array_filter($errores))) {
+                    
                     $event = new AdminPanelModel();
-                    $event->updateEvent($eventName, $eventDescription, $eventDate, $eventTotalTickets, $eventPrice);
+                    $event->updateEvent($eventID, $eventName, $eventDescription, $eventDate, $eventTotalTickets, $eventPrice);
                     header('Location: index.php?page=adminPane');
                     exit();
 
                 } else {
-
-                    require_once realpath( __DIR__ . '/../Views/EditEventForm.php' );
+                    
+                    require_once realpath(__DIR__ . '/../Views/EditEventForm.php');
+                    exit();
 
                 }
             }
-
+            
             $AdminPaneModel = new AdminPanelModel();
-            $event = $AdminPaneModel->getEventsById($_GET['eventID']);
+            $event = $AdminPaneModel->getEventById($_GET['eventID'] ?? null);
             require_once realpath(__DIR__ . '/../Views/EditEventForm.php');
 
         }
@@ -137,6 +145,19 @@
             
             require_once realpath(__DIR__ . '/../Views/NewEventForm.php');
         }
+
+        /*
+            ******************************************
+                ESTADISTICAS EVENTOS EN ADMIN PANE
+            ******************************************
+        */
+
+        private function showEstadisticas() {
+            $event = new AdminPanelModel();
+            $event = $event->getEventById($_GET['eventID']);
+            require_once realpath( __DIR__ . '/../Views/AdminStats.php');
+        }
+        
     }
 
 
