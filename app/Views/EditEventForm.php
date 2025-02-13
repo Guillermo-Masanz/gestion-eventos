@@ -3,7 +3,7 @@
 ?>
 
 <div class="newEventFormContainer">
-    <form action="index.php?page=adminPane&state=new" method="post">
+    <form action="index.php?page=adminPane&eventID=<?php echo $event[0]['id'] ?>&state=edit" method="post">
         <div class="newEventForm">
             <label for="nombre">Nombre del Evento</label>
             <span class="errorNewEventForm">
@@ -13,9 +13,15 @@
             </span>
             <br>
             <input type="text" name="nombre" id="nombre" value="<?php 
-                if ( isset($eventName) && !isset($errores['eventName']) ) { 
-                    echo $eventName; 
-                } 
+                if ( (isset($eventName) && !isset($errores['eventName'])) ) {
+                    
+                    echo $eventName;
+                    
+                } else {
+
+                    echo $event[0]['name'];
+
+                }
             ?>" >
 
             <br><br>
@@ -29,8 +35,14 @@
             <br>
             <input type="text" name="description" id="description" value="<?php 
                 if ( isset($eventDescription) && !isset($errores['eventDescription']) ) { 
-                    echo $eventDescription; 
-                } 
+
+                    echo $eventDescription;
+
+                } else {
+
+                    echo $event[0]['description'];
+
+                }
             ?>">
 
             <br><br>
@@ -44,8 +56,14 @@
             <br>
             <input type="text" name="date" id="date" value="<?php 
                 if ( isset($eventDate) && !isset($errores['eventDate']) ) { 
-                    echo $eventDate; 
-                } 
+                    
+                    echo $eventDate;
+
+                } else {
+
+                    echo $event[0]['event_date'];
+
+                }
             ?>" >
 
             <br><br>
@@ -59,7 +77,13 @@
             <br>
             <input type="text" name="price" id="price" value="<?php 
                 if ( isset($eventPrice) && !isset($errores['eventPrice']) ) { 
-                    echo $eventPrice; 
+                    
+                    echo $eventPrice;
+
+                } else {
+
+                    echo $event[0]['ticket_price'];
+
                 }
             ?>" >
 
@@ -74,13 +98,19 @@
             <br>
             <input type="text" name="totalTickets" id="totalTickets" value="<?php 
                 if ( isset($eventTotalTickets) && !isset($errores['eventTotalTickets']) ) { 
-                    echo $eventTotalTickets; 
-                } 
+                    
+                    echo $eventTotalTickets;
+
+                } else {
+
+                    echo $event[0]['total_tickets'];
+
+                }
             ?>" >
 
             <br><br>
 
-            <input type="submit" value="Agregar Evento" name="Enviar">
+            <input type="submit" value="Modificar Evento" name="Enviar">
 
         </div>
     </form>

@@ -4,5 +4,5 @@
     define('DB_PASS', '');
     define('DB_DATABASE', 'festival');
     define('SITE_ADMIN_USER', 'admin');
-    define('SITE_ADMIN_PASS', 'pass')
+    define('SITE_ADMIN_PASS', 'pass');
 ?>

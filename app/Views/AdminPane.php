@@ -11,7 +11,7 @@
             <th>Entradas Vendidas</th>
             <th>Total Entradas</th>
             <th>Acciones</th>
-            <th class="agregar"><a href="index.php?page=newEvent"><i class='bx bx-plus'></i></a></th>
+            <th class="agregar"><a href="index.php?page=adminPane&state=new"><i class='bx bx-plus'></i></a></th>
         </tr>
 
         <?php
@@ -27,7 +27,7 @@
                         <td>
                             <a href="index.php?page=adminPane&eventID='. $event['id'] .'&state=edit">Editar</a>
                             <a href="index.php?page=adminPane&eventID='. $event['id'] .'&state=delete">Eliminar</a>
-                            <a href="index.php?page=statsPane&eventID='. $event['id'] .'">Ver estadísticas</a>
+                            <a href="index.php?page=adminPane&eventID='. $event['id'] .'&state=stats">Ver estadísticas</a>
                         </td>
                     </tr>
                     ';
