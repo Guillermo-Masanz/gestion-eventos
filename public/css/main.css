@@ -120,11 +120,13 @@ textarea {
 
 .tarjetas {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-flow: wrap row;
-    gap: 2em;
-    margin: 2em auto;
+    justify-items: stretch;
+    justify-content: center;
+    column-gap: 10dvw;
+    row-gap: 10dvh;
+    margin: 2em 0;
+    width: 100%;
+    flex-flow: row wrap;
 }
 
 .tarjeta {
@@ -359,4 +361,53 @@ textarea {
     font-size: 6ch;
     color: #F1EDEE;
     text-align: center;
+}
+
+/* ************************************** */
+/* ********* LOGIN ADMIN SITE *********** */
+/* ************************************** */
+.adminForm {
+    width: 50dvw;
+    margin: 4em auto;
+}
+
+.adminForm form {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.adminForm label {
+    font-size: 2.6ch;
+    font-weight: bold;
+}
+
+.adminForm input {
+    padding: 12px;
+    border-radius: 0.2em;
+    opacity: 0.4;
+    transition: all 200ms ease-in-out;
+}
+
+.adminForm input:focus {
+    opacity: 1;
+}
+
+.adminForm input[type='submit'] {
+    background-color: #FF0035;
+    width: fit-content;
+    padding: 1em;
+    font-size: 2.2ch;
+    color: #F1EDEE;
+    border-radius: 0.2em;
+    align-self: center;
+    opacity: 1;
+}
+
+.adminForm input[type='submit']:hover {
+    cursor: pointer;
+}
+
+.loginErrors {
+    color: #FF0035;
+    font-size: 1.6ch;
 }

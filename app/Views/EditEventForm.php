@@ -8,7 +8,7 @@
 
 <div class="newEventFormContainer">
     <form action="index.php?page=adminPane&state=edit" method="post">
-        <input type="hidden" name="eventID" value="<?php echo $event[0]['id']; ?>">
+        <input type="hidden" name="eventID" value="<?php if(isset($event)) { echo $event[0]['id']; } ?>">
         <div class="newEventForm">
             <label for="nombre">Nombre del Evento</label>
             <span class="errorNewEventForm">
@@ -22,7 +22,7 @@
                     
                     echo $eventName;
                     
-                } elseif ( isset($event[0]['name']) ) {
+                } elseif ( isset($event[0]['name']) && !isset($errores) ) {
 
                     echo $event[0]['name'];
 
@@ -43,7 +43,7 @@
 
                     echo $eventDescription;
 
-                } elseif ( isset($event[0]['description']) ) {
+                } elseif ( isset($event[0]['description']) && !isset($errores) ) {
 
                     echo $event[0]['description'];
 
@@ -64,7 +64,7 @@
 
                     echo htmlspecialchars($_POST['date']);
 
-                } elseif (isset($event[0]['event_date'])) {
+                } elseif (isset($event[0]['event_date']) && !isset($errores) ) {
 
                     echo htmlspecialchars($event[0]['event_date']);
                     
@@ -85,7 +85,7 @@
                     
                     echo $eventPrice;
 
-                } elseif ( isset($event[0]['ticket_price']) ) {
+                } elseif ( isset($event[0]['ticket_price']) && !isset($errores) ) {
 
                     echo $event[0]['ticket_price'];
 
@@ -106,7 +106,7 @@
                     
                     echo $eventTotalTickets;
 
-                } elseif ( isset($event[0]['total_tickets']) ) {
+                } elseif ( isset($event[0]['total_tickets']) && !isset($errores) ) {
 
                     echo $event[0]['total_tickets'];
 

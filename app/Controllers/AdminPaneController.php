@@ -1,5 +1,6 @@
 <?php
     require_once realpath(__DIR__ . '/../Models/AdminPaneModel.php');
+    require_once realpath(__DIR__ . '/../Config/AdminUsers.php' );
 
     class AdminPaneController {
     
@@ -26,18 +27,53 @@
                         $this->showEstadisticas();
                         break;
 
+                    case 'loginPane':
+                        $this->loginPane();
+                        break;
+                        
                     default:
                         $this->showEvents();
+                        break;
                 }
 
             } else {
 
-                $this->showEvents();
+                $this->loginPane();
 
             }
         }
 
+        /*
+            ******************************************
+                ESTADISTICAS EVENTOS EN ADMIN PANE
+            ******************************************
+        */
+        private function loginPane() {
+            if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
+                $errores = [];
+
+                $username = sanearCampo($_POST['username']);
+                $password = sanearCampo($_POST['password']);
+                $errores['adminUsername'] = ( $username != SITE_ADMIN_USER ) ? '* Usuario no correcto' : null;
+                $errores['adminPassword'] = ( $password != SITE_ADMIN_PASS ) ? '* Contraseña no correcta' : null;
+
+                if ( empty(array_filter($errores)) ) {
+                    
+                    header('Location: index.php?page=adminPane&state=');
+                    exit();
+
+                } else {
+
+                    require_once realpath(__DIR__ . '/../Views/AdminPaneLogin.php');
+
+                }
+
+            }
+
+            require_once realpath(__DIR__ . '/../Views/AdminPaneLogin.php');
+        }
+        
         /*
             *************************************
                 MOSTRAR EVENTOS EN ADMIN PANE
@@ -59,7 +95,7 @@
                 $AdminPaneModel = new AdminPanelModel();
                 $AdminPaneModel->deleteEvent($_GET['eventID']);
             }
-            header("Location: index.php?page=adminPane");
+            header("Location: index.php?page=adminPane&state=");
         }
 
         /*
@@ -90,11 +126,13 @@
                     
                     $event = new AdminPanelModel();
                     $event->updateEvent($eventID, $eventName, $eventDescription, $eventDate, $eventTotalTickets, $eventPrice);
-                    header('Location: index.php?page=adminPane');
+                    header('Location: index.php?page=adminPane&state=');
                     exit();
 
                 } else {
                     
+                    $AdminPaneModel = new AdminPanelModel();
+                    $event = $AdminPaneModel->getEventById($eventID);
                     require_once realpath(__DIR__ . '/../Views/EditEventForm.php');
                     exit();
 
@@ -133,7 +171,7 @@
 
                     $event = new AdminPanelModel();
                     $event->createEvent($eventName, $eventDescription, $eventDate, $eventTotalTickets, $eventPrice);
-                    header('Location: index.php?page=adminPane');
+                    header('Location: index.php?page=adminPane&state=');
                     exit();
 
                 } else {
@@ -151,7 +189,6 @@
                 ESTADISTICAS EVENTOS EN ADMIN PANE
             ******************************************
         */
-
         private function showEstadisticas() {
             $event = new AdminPanelModel();
             $event = $event->getEventById($_GET['eventID']);

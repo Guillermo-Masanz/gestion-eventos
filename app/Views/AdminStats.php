@@ -3,7 +3,7 @@
 ?>
 
 <div class="goBack">
-    <a href="index.php?page=adminPane&state="><i class='bx bx-left-arrow-alt'></i></a>
+    <a href="index.php?page=adminPane&state=adminPane"><i class='bx bx-left-arrow-alt'></i></a>
 </div>
 <div class="statsContainer">
     <?php

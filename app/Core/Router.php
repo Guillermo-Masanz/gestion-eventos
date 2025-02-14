@@ -23,16 +23,6 @@
                     $controller->index();
                     break;
 
-                case 'newEvent':
-                    require_once realpath( __DIR__ . '/../Controllers/NewEventController.php' );
-                    $controller = new NewEventController();
-                    $controller->index();
-                    break;
-
-                case 'statePane':
-                    require_once realpath( __DIR__ . '/../Views/StatsPage.php' );
-                    break;
-
                 case 'ServiceDown':
                     require_once realpath( __DIR__ . '/../Views/ServiceDown.php' );
                     break;
