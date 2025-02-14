@@ -411,3 +411,15 @@ textarea {
     color: #FF0035;
     font-size: 1.6ch;
 }
+
+.serviceDownImg {
+    align-self: center;
+    height: 80dvh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.serviceDownImg img {
+    height: 100%;
+}
